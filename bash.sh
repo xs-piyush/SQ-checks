@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
+
 a=1
-b=2
+echo "Enter the second number of your choice:"
+read b
 sum=$(($a + $b))
-echo $sum
+echo "The sum is: $sum"
