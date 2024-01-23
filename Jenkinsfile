@@ -1,13 +1,5 @@
 pipeline {
-    agent any
-    
-    stages {
-        stage('build') {
-            steps {
-                echo 'Building...'
-            }
-        }
-        
+    agent any        
         stage('SonarQube Analysis') {
             steps {
                 script {
@@ -19,4 +11,3 @@ pipeline {
             }
         }
     }
-}
