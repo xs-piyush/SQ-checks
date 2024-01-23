@@ -12,12 +12,28 @@ pipeline {
                 }
             }
         }
-
+        
+        stage('Choose Distribution') {
+            parameters {
+                choice choices: ['value=2'=2, 'value=3'=3], description: 'Choose your favorite distribution', name: 'dist'
+            }
+            steps {
+                echo "Building for distribution: ${params.dist}"
+            }
+        }
+        
         stage('Execute bash.sh') {
             steps {
-                sh 'chmod 777 bash.sh'
-                sh './bash.sh'
+                script {
+                    def value = 1
+                    if (params.dist == '2') {
+                        value = 2
+                    } else if (params.dist == '3') {
+                        value = 3
+                    }
+                    
+                    sh "./bash.sh $value"
+                }
             }
         }
     }
-}
