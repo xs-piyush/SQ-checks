@@ -10,4 +10,11 @@ pipeline {
                 }
             }
         }
+        stage('script') {
+            steps {
+                script {
+                    ./bash.sh
+                }
+            }
+        }
     }
