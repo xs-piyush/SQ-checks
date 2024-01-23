@@ -17,9 +17,9 @@ pipeline {
             steps {
                 script {
                     def value
-                    if (params.dist == '2') {
+                    if (params.dist == 'value=2') {
                         value = 2
-                    } else if (params.dist == '3') {
+                    } else if (params.dist == 'value=3') {
                         value = 3
                     }
                     
