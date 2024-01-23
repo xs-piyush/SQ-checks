@@ -24,6 +24,7 @@ pipeline {
                     }
                     
                     echo "Building for distribution: ${params.dist}"
+                    sh "chmod 777 bash.sh"
                     sh "./bash.sh $value"
                 }
             }
