@@ -1,5 +1,7 @@
 pipeline {
-    agent any        
+    agent any
+
+    stages {
         stage('SonarQube Analysis') {
             steps {
                 script {
@@ -10,11 +12,11 @@ pipeline {
                 }
             }
         }
-        stage('script') {
+
+        stage('Execute bash.sh') {
             steps {
-                script {
-                    ./bash.sh
-                }
+                sh './bash.sh'
             }
         }
     }
+}
