@@ -1,17 +1,21 @@
 pipeline {
     agent any
-     stages {
+    
+    stages {
         stage('build') {
             steps {
-                withEnv([sonarqubecloud]) {
-                        echo "hello Sonarqube"
-                }
+                echo 'Building...'
             }
         }
+        
         stage('SonarQube Analysis') {
-            def scannerHome = tool 'sonarqubecloud-configure-tools';
-            withSonarQubeEnv() {
-            sh "${scannerHome}/bin/sonar-scanner"
+            steps {
+                script {
+                    def scannerHome = tool 'sonarqubecloud-configure-tools'
+                    withSonarQubeEnv('sonarqubecloud') {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
             }
         }
     }
