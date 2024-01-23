@@ -14,15 +14,6 @@ pipeline {
         }
         
         stage('Choose Distribution') {
-            parameters {
-                choice choices: ['value=2'=2, 'value=3'=3], description: 'Choose your favorite distribution', name: 'dist'
-            }
-            steps {
-                echo "Building for distribution: ${params.dist}"
-            }
-        }
-        
-        stage('Execute bash.sh') {
             steps {
                 script {
                     def value = 1
@@ -32,8 +23,10 @@ pipeline {
                         value = 3
                     }
                     
+                    echo "Building for distribution: ${params.dist}"
                     sh "./bash.sh $value"
                 }
             }
         }
     }
+}
