@@ -16,6 +16,7 @@ pipeline {
         stage('Choose Distribution') {
             steps {
                 script {
+                    def value
                     if (params.dist == '2') {
                         value = 2
                     } else if (params.dist == '3') {
