@@ -15,6 +15,7 @@ pipeline {
 
         stage('Execute bash.sh') {
             steps {
+                sh 'chmod 777 bash.sh'
                 sh './bash.sh'
             }
         }
