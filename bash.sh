@@ -12,6 +12,6 @@
 #-------------------------Task 02: "String added will be printed"-----------------------------------------
 
 
-a='beamUser'
+a='Piyush'
 name="$1"  # Access the first command-line argument
 echo "The action will be performed by $a with $name privileges"
