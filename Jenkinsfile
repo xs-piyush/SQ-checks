@@ -17,10 +17,10 @@ pipeline {
             steps {
                 script {
                     def value
-                    if (params.dist == 'value=2') {
-                        value = 2
-                    } else if (params.dist == 'value=3') {
-                        value = 3
+                    if (params.dist == 'value=beamUser') {
+                        value = 'beamUser'
+                    } else if (params.dist == 'value=beamAdmin') {
+                        value = 'beamAdmin'
                     }
                     
                     echo "Building for distribution: ${params.dist}"
